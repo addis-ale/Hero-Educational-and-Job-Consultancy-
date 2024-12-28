@@ -1,0 +1,94 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+ 
+generator client {
+  provider = "prisma-client-js"
+}
+ 
+model User {
+  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?
+  email         String?        @unique
+  emailVerified DateTime?
+  image         String?
+  hashedPassword String?
+  active Boolean @default(false)
+  isVerified      Boolean  @default(false)
+  activateTokens ActivateToken[]
+  passwordResetTokens PasswordResetToken[]
+  accounts      Account[]
+  application Application[]
+  role Role @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+ enum Role{
+    USER
+    ADMIN
+ }
+model Account {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([provider, providerAccountId])
+}
+model PasswordResetToken{
+   id            String          @id @default(auto()) @map("_id") @db.ObjectId
+   token String @unique
+   createdAt DateTime @default(now())
+   resetAt DateTime?
+   userId String @db.ObjectId
+ user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+model ActivateToken {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId           String  @db.ObjectId
+  token      String @unique
+  createdAt DateTime @default(now())
+  activatedAt DateTime?
+  expiresAt DateTime?
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+model Scholarship {
+  id               String  @id @default(auto()) @map("_id") @db.ObjectId
+  name             String
+  sch_title        String
+  sch_introduction String
+  job_title        String
+  job_introduction String
+  flag_url         String
+  card_url         String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Application {
+  id               String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId           String  @db.ObjectId
+  fullName         String
+  email            String
+  phoneNumber      String
+  destination      String
+  type             String
+  field            String
+  passportImage    String
+  birthCerteficateImage String
+  educationalBackground String []
+  status String
+    createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

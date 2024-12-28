@@ -1,0 +1,41 @@
+[33mcommit e1983654f0071be217360cc14057341a8456d57d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: addisale27 <163672380+addisale27@users.noreply.github.com>
+Date:   Thu Oct 3 13:42:55 2024 +0300
+
+    error fixed
+
+[33mcommit 4eeebb69ae105abf3cdf96d6a1c0205da331fa2c[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: addisale27 <163672380+addisale27@users.noreply.github.com>
+Date:   Thu Oct 3 05:35:48 2024 +0300
+
+    Add .env file with environment variables
+
+[33mcommit 037fcca31c320003402771f8ee1d3d8a07e8ccc1[m
+Author: addisale27 <163672380+addisale27@users.noreply.github.com>
+Date:   Thu Oct 3 05:06:18 2024 +0300
+
+    Remove sensitive data from .env
+
+[33mcommit f88deaba3db4a2e85c0586aa4514dc50de610124[m
+Author: addisale27 <163672380+addisale27@users.noreply.github.com>
+Date:   Thu Oct 3 04:21:46 2024 +0300
+
+    testing deployment
+
+[33mcommit 30566d953b5b2c99ed78b9dbb6ab1929d9803373[m
+Author: addisale27 <163672380+addisale27@users.noreply.github.com>
+Date:   Thu Oct 3 03:37:07 2024 +0300
+
+    profile ui completed
+
+[33mcommit 8236dea1fa4353ff7bd1641d2364c1351188851c[m
+Author: addisale27 <163672380+addisale27@users.noreply.github.com>
+Date:   Thu Oct 3 01:24:47 2024 +0300
+
+    nextauth completed
+
+[33mcommit 355707a61d2c6753f9b59be99c96b99ef70cdcf3[m
+Author: addisale27 <163672380+addisale27@users.noreply.github.com>
+Date:   Mon Sep 30 23:02:56 2024 +0300
+
+    navbar created

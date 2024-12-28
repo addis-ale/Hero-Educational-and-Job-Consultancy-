@@ -1,0 +1,35 @@
+/* Import Tailwind Base, Components, and Utilities */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Ensure the body takes the full width and height without overflow */
+html,
+body {
+  @apply m-0 p-0 w-screen h-screen overflow-x-hidden;
+}
+
+/* Prevent overflow issues from specific elements */
+* {
+  @apply box-border; /* Ensure consistent box-sizing */
+}
+
+/* Container to center content */
+.container {
+  @apply max-w-screen-lg mx-auto px-4 sm:px-8 lg:px-16 overflow-hidden;
+}
+
+/* Images stay responsive and prevent overflow */
+.image {
+  @apply w-full h-auto max-w-full object-cover rounded-lg;
+}
+
+/* Ensure grid items are aligned properly */
+.grid-2 {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-8 items-center;
+}
+
+/* Remove horizontal overflow for flex elements */
+.flex-center {
+  @apply flex items-center justify-center gap-4 overflow-hidden;
+}
